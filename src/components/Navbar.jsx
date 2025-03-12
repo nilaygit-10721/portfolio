@@ -1,9 +1,9 @@
-'use client'
+"use client";
 
-import * as React from "react"
-import { Button } from "@/components/ui/button"
-import { Asterisk, Search, Menu, X, Github } from 'lucide-react'
-import logo from '../assets/images/logo.png'
+import * as React from "react";
+import { Button } from "@/components/ui/button";
+import { Asterisk, Search, Menu, X, Github } from "lucide-react";
+import logo from "../assets/images/logo.png";
 import {
   Sheet,
   SheetContent,
@@ -11,48 +11,47 @@ import {
   SheetTitle,
   SheetTrigger,
   SheetClose,
-} from "@/components/ui/sheet"
-import { Link } from "react-router-dom"
+} from "@/components/ui/sheet";
+import { Link } from "react-router-dom";
 
 const navLinks = [
   { id: "01", name: "Home", href: "/" },
   { id: "02", name: "Projects", href: "/projects" },
-  { id: "03", name: "Blogs", href: "/blogs" },
+  // { id: "03", name: "Blogs", href: "/blogs" },
   { id: "04", name: "About", href: "/about" },
   { id: "06", name: "Contact", href: "/contact" },
-]
+];
 
 export default function Navbar({ activeSection }) {
-  const [isScrolled, setIsScrolled] = React.useState(false)
-  const [isOpen, setIsOpen] = React.useState(false)
+  const [isScrolled, setIsScrolled] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
 
   const playClickSound = () => {
-    const audio = new Audio('/src/assets/sfx/click.wav')
-    audio.play()
-  }
+    const audio = new Audio("/src/assets/sfx/click.wav");
+    audio.play();
+  };
 
   React.useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  console.log('Active Section:', activeSection);
-
+  console.log("Active Section:", activeSection);
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 
-        ${isScrolled ? 'backdrop-blur-md' : 'bg-transparent'}`}
+        ${isScrolled ? "backdrop-blur-md" : "bg-transparent"}`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-4 rounded-lg">
           <div className="flex items-center">
-            <Link to={'/'}>
+            <Link to={"/"}>
               <div className="flex-shrink-0 bg-[#48cb74] rounded-full">
-                <img src={logo} className=" h-10" alt="logo"/>
+                <img src={logo} className=" h-10" alt="logo" />
               </div>
             </Link>
 
@@ -62,12 +61,15 @@ export default function Navbar({ activeSection }) {
                   <Link key={item.name} to={item.href}>
                     <Button
                       variant="ghost"
-                      className={`text-sm transition-all duration-300 font-medium ${activeSection === "aboutus" ? "text-gray-900" :
-                        activeSection === "projects" ? "text-green-500" :
-                          activeSection === "skills" ? "text-white" :
-                            "text-gray-900"
-                        }`}
-
+                      className={`text-sm transition-all duration-300 font-medium ${
+                        activeSection === "aboutus"
+                          ? "text-gray-900"
+                          : activeSection === "projects"
+                          ? "text-green-500"
+                          : activeSection === "skills"
+                          ? "text-white"
+                          : "text-gray-900"
+                      }`}
                       onClick={playClickSound}
                     >
                       {item.name}
@@ -78,7 +80,7 @@ export default function Navbar({ activeSection }) {
             </div>
           </div>
           <div className="flex items-center">
-            <Link to={'https://github.com/nilaygit-10721'} >
+            <Link to={"https://github.com/nilaygit-10721"}>
               <Button variant="ghost" size="icon" className="mr-2 bg-green-400">
                 <Github className="h-5 w-5" />
               </Button>
@@ -86,11 +88,19 @@ export default function Navbar({ activeSection }) {
 
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className={`md:hidden ${activeSection === "aboutus" ? "text-gray-900" :
-                  activeSection === "projects" ? "bg-green-500" :
-                    activeSection === "skills" ? "bg-white" :
-                      "bg-green-300"
-                  }`} >
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className={`md:hidden ${
+                    activeSection === "aboutus"
+                      ? "text-gray-900"
+                      : activeSection === "projects"
+                      ? "bg-green-500"
+                      : activeSection === "skills"
+                      ? "bg-white"
+                      : "bg-green-300"
+                  }`}
+                >
                   <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
@@ -107,8 +117,8 @@ export default function Navbar({ activeSection }) {
                       key={item.name}
                       to={item.href}
                       onClick={() => {
-                        setIsOpen(false)
-                        playClickSound()
+                        setIsOpen(false);
+                        playClickSound();
                       }}
                     >
                       <div className="flex items-center space-x-4 px-2 py-2 hover:bg-white active:bg-white rounded-md transition-colors border-b border-slate-900">
@@ -124,5 +134,5 @@ export default function Navbar({ activeSection }) {
         </div>
       </nav>
     </header>
-  )
+  );
 }

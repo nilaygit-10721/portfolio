@@ -1,30 +1,29 @@
-'use client'
+"use client";
 
-import { Monitor, BriefcaseIcon } from 'lucide-react'
-import { motion } from 'framer-motion'
-import starIcon from '../../assets/skills/star.svg'
-import reactIcon from '../../assets/skills/react.svg'
-import NextIcon from '../../assets/skills/next.svg'
+import { Monitor, BriefcaseIcon } from "lucide-react";
+import { motion } from "framer-motion";
+import starIcon from "../../assets/skills/star.svg";
+import reactIcon from "../../assets/skills/react.svg";
+import NextIcon from "../../assets/skills/next.svg";
 
 const experiences = [
   {
-    title: "Next.js Developer",
-    company: "Tridebits Technologies",
-    description: "Worked as a Next.js developer at Tridebits Technologies since Jan 2025. Developed and maintained the 4 Dynamci website templates and internal applications. Implemented SEO best practices and improved website performance.",
+    title: "Open source contribution",
+    company: "Rocket chat and Tool jet",
+    description:
+      "Open Source Contributions: Successfully contributed to prominent projects including Rocket.Chat, Jenkins, and ToolJet with over 5 merged pull requests during Hacktoberfest 2024.",
     icon: NextIcon,
     technologies: ["Next js"],
-    duration: "Jan 2025 - Present"
   },
   {
-    title: "Full Stack Mern Developer",
-    company: "Sinss Digital Marketing Studio",
-    description: "Currently working as a full-stack developer at Sinss Digital Marketing Studio since Dec 2023. Developed e-commerce, CRM, and project management applications using the MERN stack, Next.js, PostgreSQL, and MySQL. Designed and developed over 8 websites as the sole developer.",
+    title: "Medify",
+    company: "Sap hackathon",
+    description:
+      "Hackathon Participation: Contributed to the development of a Doctor's Handwriting Reader app during the SAP Hackathon, showcasing skills in innovative problem-solving and collaborative development.",
     icon: reactIcon,
-    technologies: ["MERN", "PostgreSQL", "MySQL"],
-    duration: "Dec 2023 - Dec 2024"
-  }
-]
-
+    technologies: ["React native", "PostgreSQL", "Python"],
+  },
+];
 
 export default function Experience() {
   return (
@@ -36,7 +35,7 @@ export default function Experience() {
           transition={{ duration: 0.5 }}
           className="text-4xl font-bold text-green-600  mb-10 tracking-wider"
         >
-          EXPERIENCE
+          Achievements
         </motion.h2>
 
         <div className="">
@@ -90,5 +89,5 @@ export default function Experience() {
         </div>
       </div>
     </section>
-  )
+  );
 }
